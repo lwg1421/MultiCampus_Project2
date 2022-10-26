@@ -9,6 +9,7 @@ from .models import home_away_all
 from .models import relative_record_2021
 from .models import relative_record_all
 from .models import upset
+from .models import all_position
 
 # Register your models here.
 admin.site.register(score_percentage)
@@ -21,3 +22,4 @@ admin.site.register(home_away_all)
 admin.site.register(relative_record_2021)
 admin.site.register(relative_record_all)
 admin.site.register(upset)
+admin.site.register(all_position)
