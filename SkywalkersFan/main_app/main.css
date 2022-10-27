@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+.container {
+    width:100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat:repeat;
+    position:relative;
+    z-index:1;
+    }
+
+.container::after {
+    width:100%;
+    height: calc(100vh);
+    content: "";
+    background-size: cover;
+    background-image: url(https://www.skywalkers.co.kr/static/images/main_visual_004.jpg);
+    background-position: center center;
+    background-repeat:repeat;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:-1;
+    opacity:0.7;
+    }
+
+button {
+    margin:40px auto auto 580px;
+	box-shadow: 0px 0px 0px 2px #5991c2;
+	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+	background-color:#79bbff;
+	border-radius:10px;
+	border:1px solid #337bc4;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:19px;
+	font-weight:bold;
+	padding:12px 37px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528ecc;
+}
+button:hover {
+	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+	background-color:#378de5;
+}
+button:active {
+	position:relative;
+	top:1px;
+}
+
+        
+
+
+.playerButton {
+    margin:60px auto auto 100px;
+
+}
+
+
+
+
+
+
