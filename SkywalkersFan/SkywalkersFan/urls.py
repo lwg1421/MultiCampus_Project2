@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('main_app.urls')),
     path('team/',include('team_graph_app.urls')),
-    path('palyer/',include('player_graph_app.urls')),
+    path('player/',include('player_graph_app.urls')),
 ]
