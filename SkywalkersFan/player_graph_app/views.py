@@ -23,7 +23,7 @@ rc('font', family=font)
 
 # Create your views here.
 def player(request) :
-    return HttpResponse('player page')
+    return render(request, 'player_graph_app/test.html')
 
 def dbtodf(table_name):
     temp='select * from '+str(table_name)
