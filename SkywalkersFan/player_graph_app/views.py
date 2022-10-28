@@ -26,7 +26,7 @@ else:
 
 # Create your views here.
 def player(request) :
-    return render(request, 'player_graph_app/test.html')
+    return render(request, 'player_graph_app/Player_list_test.html')
 
 def dbtodf(table_name):
     temp='select * from '+str(table_name)

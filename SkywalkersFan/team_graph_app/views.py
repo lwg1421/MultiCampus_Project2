@@ -24,7 +24,7 @@ def team(request) :
     ace_comparison(df)
     ace_scatter(df)
     relative_record_all()
-    return render(request, 'team_graph_app/test.html')
+    return render(request, 'team_graph_app/Team.html')
 
 def dbtodf(table_name):
     temp='select * from '+str(table_name)
