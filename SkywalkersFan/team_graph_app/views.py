@@ -1,6 +1,7 @@
 import sqlite3 as sql
 import pandas as pd
 import matplotlib.pyplot as plt
+import plotly.express as px 
 import platform
 from matplotlib import font_manager, rc
 plt.rcParams['axes.unicode_minus']=False
@@ -88,3 +89,37 @@ def hist_comparison(csv) :
     plt.ylim([0,15])
     plt.title('삼성화재 18명')
     return plt.savefig('static/img/hist_comparison.png')
+
+def relative_record_all('team_graph_app_relative_record_all'):
+    df = dbtodf('team_graph_app_relative_record_all')
+    fig = px.bar(df, x="상대팀", y="경기수",  color="경기결과", text = '경기수')
+    return fig.write_image('stactic/img/realative_record_all.png')
+
+def relative_record_2021('team_graph_app_relative_record_2021'):
+    df = dbtodf('team_graph_app_relative_record_2021')
+    fig = px.bar(df, x="상대팀", y="경기수",  color="경기결과", text = '경기수')
+    return fig.write_image('stactic/img/realative_record_all.png')
+
+def clean_sheet('team_graph_app_clean_sheet'):
+    df = dbtodf('team_graph_app_clean_sheet')
+    fig = px.bar(df, x="세트 스코어", y='합계', color="상대팀", text="상대팀")
+    return fig.write_image('stactic/img/clean_sheet.png') 
+
+def upset('team_graph_app_upset'):
+    df = dbtodf('team_graph_app_upset')
+    fig = px.bar(df, x="세트 스코어", y='합계', color="상대팀", text="상대팀")
+    return fig.write_image('stactic/img/upset.png')
+
+def home_away_all('team_graph_app_home_away_all')
+    df = dbtodf('team_graph_app_home_away_all')
+    fig = px.histogram(DF, x="홈/어웨이", y="경기수",
+                 color='경기결과', barmode='group', histfunc = 'sum', text_auto=True,
+                 height=400)
+    fig.write_image('stactic/img/home_away_all.png')
+    
+def home_away_2021('team_graph_app_home_away_2021')
+    df = dbtodf('team_graph_app_home_away_2021')
+    fig = px.histogram(DF, x="홈/어웨이", y="경기수",
+                 color='경기결과', barmode='group', histfunc = 'sum', text_auto=True,
+                 height=400)
+    fig.write_image('stactic/img/home_away_2021.png')    
