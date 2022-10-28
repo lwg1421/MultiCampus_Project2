@@ -28,6 +28,10 @@ else:
 def player(request) :
     return render(request, 'player_graph_app/Player_list_test.html')
 
+# 선수 이름을 주고받고 싶음
+def get_player(request, word) :
+    return HTTPResponse("넘어온 데이터 : "+word)
+
 def dbtodf(table_name):
     temp='select * from '+str(table_name)
     con=sql.connect('./SkywalkersFan/db.sqlite3')

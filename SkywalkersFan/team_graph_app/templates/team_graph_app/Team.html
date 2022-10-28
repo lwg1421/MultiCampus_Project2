@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -5,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>현대 스카이워커스 TEAM</title>
-    <link rel="stylesheet" href="static/css/Team.css">
+    <link rel="stylesheet" href="{% static 'css/Team.css'%}">
     <style>
         .multi{
             column-count :1;
@@ -22,8 +23,12 @@
 
 <body>
     <header>
-        <button type="button" >HOME</button> 
-        <button type="button" class="playerButton" >PLAYER</button> 
+        <a href="{% url 'home' %}">
+        <button type="button" >HOME</button>
+        </a>
+        <a href="{% url 'player' %}">
+        <button type="button" class="playerButton" >PLAYER</button>
+        </a>
     </header>
 
     <img src="https://w.namu.la/s/6b8602aab1532270749fb4007b8aae215f236d0dde7433338db7093d0ff1621b8f777bf6446c5f0addf5ac1030724a09197be4773a1440fcf870e2bed7c5c755b76e9f173187e453631ffa2a475373ce3b45645a38b75f98a92623dc0d693de3"
@@ -36,6 +41,25 @@
         <br>2005년 창단 이후 <b>4번의 우승</b>과 <b>7번의 준우승</b>을 거둔 전통의 강팀이며, 동시에 V-League에서 가장 많은 팬을 보유하고 있는 <b>홈 관중</b> 동원 부동의 <b>1위</b>
         팀이다.</p>  
 
+    </div>
+    <div class="ryu">
+        <h2>각 팀 에이스 지표 비교</h2>
+        <img src="static/img/ace_comparison.png" alt="ace_comparison">
+        <img src="static/img/ace_scatter.png" alt="ace_scatter">
+    </div>
+    <div class="cha">
+        <img src="static/img/relative_record_all.png" alt="relative_record_all">
+        <img src="static/img/relative_record_2021.png" alt="relative_record_2021">
+        <img src="static/img/clean_sheet.png" alt="clean_sheet">
+        <img src="static/img/upset.png" alt="upset">
+        <img src="static/img/home_away_all.png" alt="home_away_all">
+        <img src="static/img/home_away_2021.png" alt="home_away_2021">
+    </div>
+    <div class="seong">
+        <img src="static/img/seasonRank.png" alt="seasonRank">
+        <img src="static/img/score_percentage.png" alt="scorePercentage">
+        <img src="static/img/roundRank18_22.png" alt="roundRank18_22">
+        <img src="static/img/roundRank05_18.png" alt="roundRank05_18">
     </div>
 
 </body>

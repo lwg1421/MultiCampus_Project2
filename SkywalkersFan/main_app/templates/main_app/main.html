@@ -17,8 +17,12 @@
 
         <img src="static/img/main.jpg"alt="상대 경로"style="display:block;margin: 10px auto auto 580px;width=:90px;height:70px" title="현대 메인 소개">
 
-        <button type="button" >TEAM</button> 
-        <button type="button" class="playerButton">PLAYER</button> 
+        <a href="{% url 'team' %}">
+        <button type="button" class="teamButton" onclick="href=''">TEAM</button>
+        </a>
+        <a href="{% url 'player' %}">
+        <button type="button" class="playerButton">PLAYER</button>
+        </a>
 
    </div>
 
