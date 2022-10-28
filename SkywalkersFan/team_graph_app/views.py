@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import plotly.express as px 
 import platform
+import seaborn as sns
 from matplotlib import font_manager, rc
 plt.rcParams['axes.unicode_minus']=False
 if platform.system()=='Darwin':
@@ -24,6 +25,15 @@ def team(request) :
     ace_comparison(df)
     ace_scatter(df)
     relative_record_all()
+    relative_record_2021()
+    clean_sheet()
+    upset()
+    home_away_all()
+    home_away_2021()
+    seasonRank()
+    scorePercentage()
+    roundRank18()
+    roundRank05()
     return render(request, 'team_graph_app/Team.html')
 
 def dbtodf(table_name):
@@ -216,7 +226,7 @@ def relative_record_all():
 def relative_record_2021():
     df = dbtodf('team_graph_app_relative_record_2021')
     fig = px.bar(df, x="상대팀", y="경기수",  color="경기결과", text = '경기수')
-    return fig.write_image('static/img/realative_record_2021.png')
+    return fig.write_image('static/img/relative_record_2021.png')
 
 def clean_sheet():
     df = dbtodf('team_graph_app_clean_sheet')
@@ -241,3 +251,61 @@ def home_away_2021():
                  color='경기결과', barmode='group', histfunc = 'sum', text_auto=True,
                  height=400)
     fig.write_image('static/img/home_away_2021.png')
+
+def seasonRank():
+    df=dbtodf('team_graph_app_seasonrank')
+
+    plt.figure(figsize=(20,5))
+    plt.plot(df['시즌'], df['순위'],label='HYUNDAI',marker='o')
+
+    plt.gca().invert_yaxis()   #y축 반대로
+    plt.xlabel('Season League')         
+    plt.ylabel('Rank')
+    plt.title('시즌 순위',fontsize=25)
+    plt.legend()
+    return plt.savefig('static/img/seasonRank.png')  
+
+def scorePercentage():
+    df=dbtodf('team_graph_app_score_percentage')
+    plt.figure(figsize=(18,5))
+    category=['공격','블로킹','서브']
+    colors=['pink','gold','cyan']
+
+    plt.subplot(1,4,1)
+    plt.pie(df['2018-19'],labels=category,autopct='%.1f%%',colors=colors,shadow=True)
+    plt.title("2018-19 득점 비율",fontsize=15)
+
+    plt.subplot(1,4,2)
+    plt.pie(df['2019-20'],labels=category,autopct='%.1f%%',colors=colors,shadow=True)
+    plt.title("2019-20 득점 비율",fontsize=15)
+
+    plt.subplot(1,4,3)
+    plt.pie(df['2020-21'],labels=category,autopct='%.1f%%',colors=colors,shadow=True)
+    plt.title("2020-21 득점 비율",fontsize=15)
+
+    plt.subplot(1,4,4)
+    plt.pie(df['2021-22'],labels=category,autopct='%.1f%%',colors=colors,shadow=True)
+    plt.title("2021-22 득점 비율",fontsize=15)
+    return plt.savefig('static/img/score_percentage.png')
+
+def roundRank18():
+    df=dbtodf('team_graph_app_roundrank_count_18_22')
+    df=df.set_index('랭크')
+    plt.subplot(1,1,1)
+    sns.heatmap(df,annot=True,fmt='d',cmap='Reds')
+    plt.title('라운드 별 순위 빈도(2018~2022)', fontsize=20)
+    plt.xlabel('Round', fontsize=14)
+    plt.ylabel('Rank', fontsize=14)
+
+    return plt.savefig('static/img/roundRank18_22.png')
+
+def roundRank05():
+    df=dbtodf('team_graph_app_roundrank_count_05_18')
+    df=df.set_index('랭크')
+    plt.subplot(1,1,1)
+    sns.heatmap(df,annot=True,fmt='d',cmap='Reds')
+    plt.title('라운드 별 순위 빈도(2005~2018)', fontsize=20)
+    plt.xlabel('Round', fontsize=14)
+    plt.ylabel('Rank', fontsize=14)
+
+    return plt.savefig('static/img/roundRank05_18.png')
