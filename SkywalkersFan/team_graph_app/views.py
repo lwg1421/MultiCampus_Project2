@@ -23,6 +23,7 @@ def team(request) :
     hist_comparison(df)
     ace_comparison(df)
     ace_scatter(df)
+    relative_record_all()
     return render(request, 'team_graph_app/test.html')
 
 def dbtodf(table_name):
@@ -207,36 +208,36 @@ def ace_scatter(csv) :
     plt.title('디그 성공률')
     return plt.savefig('static/img/ace_scatter.png')
     
-def relative_record_all('team_graph_app_relative_record_all'):
+def relative_record_all():
     df = dbtodf('team_graph_app_relative_record_all')
     fig = px.bar(df, x="상대팀", y="경기수",  color="경기결과", text = '경기수')
-    return fig.write_image('stactic/img/realative_record_all.png')
+    return fig.write_image('static/img/relative_record_all.png')
 
-def relative_record_2021('team_graph_app_relative_record_2021'):
+def relative_record_2021():
     df = dbtodf('team_graph_app_relative_record_2021')
     fig = px.bar(df, x="상대팀", y="경기수",  color="경기결과", text = '경기수')
-    return fig.write_image('stactic/img/realative_record_all.png')
+    return fig.write_image('stactic/img/realative_record_2021.png')
 
-def clean_sheet('team_graph_app_clean_sheet'):
+def clean_sheet():
     df = dbtodf('team_graph_app_clean_sheet')
     fig = px.bar(df, x="세트 스코어", y='합계', color="상대팀", text="상대팀")
     return fig.write_image('stactic/img/clean_sheet.png') 
 
-def upset('team_graph_app_upset'):
+def upset():
     df = dbtodf('team_graph_app_upset')
     fig = px.bar(df, x="세트 스코어", y='합계', color="상대팀", text="상대팀")
     return fig.write_image('stactic/img/upset.png')
 
-def home_away_all('team_graph_app_home_away_all')
+def home_away_all():
     df = dbtodf('team_graph_app_home_away_all')
-    fig = px.histogram(DF, x="홈/어웨이", y="경기수",
+    fig = px.histogram(df, x="홈/어웨이", y="경기수",
                  color='경기결과', barmode='group', histfunc = 'sum', text_auto=True,
                  height=400)
     fig.write_image('stactic/img/home_away_all.png')
     
-def home_away_2021('team_graph_app_home_away_2021')
+def home_away_2021():
     df = dbtodf('team_graph_app_home_away_2021')
-    fig = px.histogram(DF, x="홈/어웨이", y="경기수",
+    fig = px.histogram(df, x="홈/어웨이", y="경기수",
                  color='경기결과', barmode='group', histfunc = 'sum', text_auto=True,
                  height=400)
     fig.write_image('stactic/img/home_away_2021.png')
