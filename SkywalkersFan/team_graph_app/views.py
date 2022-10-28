@@ -216,28 +216,28 @@ def relative_record_all():
 def relative_record_2021():
     df = dbtodf('team_graph_app_relative_record_2021')
     fig = px.bar(df, x="상대팀", y="경기수",  color="경기결과", text = '경기수')
-    return fig.write_image('stactic/img/realative_record_2021.png')
+    return fig.write_image('static/img/realative_record_2021.png')
 
 def clean_sheet():
     df = dbtodf('team_graph_app_clean_sheet')
     fig = px.bar(df, x="세트 스코어", y='합계', color="상대팀", text="상대팀")
-    return fig.write_image('stactic/img/clean_sheet.png') 
+    return fig.write_image('static/img/clean_sheet.png') 
 
 def upset():
     df = dbtodf('team_graph_app_upset')
     fig = px.bar(df, x="세트 스코어", y='합계', color="상대팀", text="상대팀")
-    return fig.write_image('stactic/img/upset.png')
+    return fig.write_image('static/img/upset.png')
 
 def home_away_all():
     df = dbtodf('team_graph_app_home_away_all')
     fig = px.histogram(df, x="홈/어웨이", y="경기수",
                  color='경기결과', barmode='group', histfunc = 'sum', text_auto=True,
                  height=400)
-    fig.write_image('stactic/img/home_away_all.png')
+    fig.write_image('static/img/home_away_all.png')
     
 def home_away_2021():
     df = dbtodf('team_graph_app_home_away_2021')
     fig = px.histogram(df, x="홈/어웨이", y="경기수",
                  color='경기결과', barmode='group', histfunc = 'sum', text_auto=True,
                  height=400)
-    fig.write_image('stactic/img/home_away_2021.png')
+    fig.write_image('static/img/home_away_2021.png')

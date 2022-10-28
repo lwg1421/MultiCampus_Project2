@@ -1,15 +1,10 @@
 from http.client import HTTPResponse
 import sqlite3 as sql
 import pandas as pd
-from django.shortcuts import render
-from django.http import HttpResponse
-
-import pandas as pd
-
-import matplotlib.pyplot as plt
-import pandas as pd
 import numpy as np
- 
+import matplotlib.pyplot as plt
+import platform
+from django.shortcuts import render
 from math import pi
 from matplotlib.path import Path
 from matplotlib.spines import Spine
@@ -17,9 +12,17 @@ from matplotlib.transforms import Affine2D
 
 # 한글 폰트 사용을 위해서 세팅
 from matplotlib import font_manager, rc
-font_path = "C:/Windows/Fonts/NGULIM.TTF"
-font = font_manager.FontProperties(fname=font_path).get_name()
-rc('font', family=font)
+plt.rcParams['axes.unicode_minus']=False
+if platform.system()=='Darwin':
+    rc('font',family='AppleGothic')
+elif platform.system()=='Windows':
+    path='C:/Windows/Fonts/malgun.ttf'
+    font_name=font_manager.FontProperties(fname=path).get_name()
+    rc('font',family=font_name)
+else:
+    print('Unknown system...')
+
+
 
 # Create your views here.
 def player(request) :
