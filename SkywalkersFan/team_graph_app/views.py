@@ -48,7 +48,7 @@ def dbtodf(table_name):
     return result
 
 def hist_comparison(csv) :
-    if isfile('static/img/hist_comparison.png') == False :
+    if isfile('/static/img/hist_comparison.png') == False :
         skywalkers=csv.loc[csv.구단=='현대캐피탈']
         jumbos=csv.loc[csv.구단=='대한항공']
         stars=csv.loc[csv.구단=='KB손해보험']
@@ -94,7 +94,7 @@ def hist_comparison(csv) :
         return None
 
 def ace_comparison(csv) :
-    if isfile('static/img/ace_comparison.png') == False :
+    if isfile('/static/img/ace_comparison.png') == False :
         skywalkers=csv.loc[csv.구단=='현대캐피탈']
         jumbos=csv.loc[csv.구단=='대한항공']
         stars=csv.loc[csv.구단=='KB손해보험']
@@ -160,7 +160,7 @@ def ace_comparison(csv) :
         return None
 
 def ace_scatter(csv) :
-    if isfile('static/img/ace_scatter.png') == False :
+    if isfile('/static/img/ace_scatter.png') == False :
         skywalkers=csv.loc[csv.구단=='현대캐피탈']
         jumbos=csv.loc[csv.구단=='대한항공']
         stars=csv.loc[csv.구단=='KB손해보험']
@@ -229,7 +229,7 @@ def ace_scatter(csv) :
         return None
     
 def relative_record_all():
-    if isfile('static/img/relative_record_all.png') == False :
+    if isfile('/static/img/relative_record_all.png') == False :
         df = dbtodf('team_graph_app_relative_record_all')
         fig = px.bar(df, x="상대팀", y="경기수",  color="경기결과", text = '경기수')
         return fig.write_image('static/img/relative_record_all.png')
@@ -237,7 +237,7 @@ def relative_record_all():
         return None
 
 def relative_record_2021():
-    if isfile('static/img/relative_record_2021.png') == False :
+    if isfile('/static/img/relative_record_2021.png') == False :
         df = dbtodf('team_graph_app_relative_record_2021')
         fig = px.bar(df, x="상대팀", y="경기수",  color="경기결과", text = '경기수')
         return fig.write_image('static/img/relative_record_2021.png')
@@ -245,7 +245,7 @@ def relative_record_2021():
         return None
 
 def clean_sheet():
-    if isfile('static/img/clean_sheet.png') == False :
+    if isfile('/static/img/clean_sheet.png') == False :
         df = dbtodf('team_graph_app_clean_sheet')
         fig = px.bar(df, x="세트 스코어", y='합계', color="상대팀", text="상대팀")
         return fig.write_image('static/img/clean_sheet.png')
@@ -253,7 +253,7 @@ def clean_sheet():
         return None
 
 def upset():
-    if isfile('static/img/upset.png') == False :
+    if isfile('/static/img/upset.png') == False :
         df = dbtodf('team_graph_app_upset')
         fig = px.bar(df, x="세트 스코어", y='합계', color="상대팀", text="상대팀")
         return fig.write_image('static/img/upset.png')
@@ -261,7 +261,7 @@ def upset():
         return None
 
 def home_away_all():
-    if isfile('static/img/home_away_all.png') == False :
+    if isfile('/static/img/home_away_all.png') == False :
         df = dbtodf('team_graph_app_home_away_all')
         fig = px.histogram(df, x="홈/어웨이", y="경기수",
                     color='경기결과', barmode='group', histfunc = 'sum', text_auto=True,
@@ -271,7 +271,7 @@ def home_away_all():
         return None
     
 def home_away_2021():
-    if isfile('static/img/home_away_2021.png') == False :
+    if isfile('/static/img/home_away_2021.png') == False :
         df = dbtodf('team_graph_app_home_away_2021')
         fig = px.histogram(df, x="홈/어웨이", y="경기수",
                     color='경기결과', barmode='group', histfunc = 'sum', text_auto=True,
@@ -281,7 +281,7 @@ def home_away_2021():
         return None
 
 def seasonRank():
-    if isfile('static/img/seasonRank.png') == False :
+    if isfile('/static/img/seasonRank.png') == False :
         df=dbtodf('team_graph_app_seasonrank')
         plt.figure(figsize=(20,5))
         plt.plot(df['시즌'], df['순위'],label='HYUNDAI',marker='o')
@@ -295,7 +295,7 @@ def seasonRank():
         return None
 
 def scorePercentage():
-    if isfile('static/img/score_percentage.png') == False :
+    if isfile('/static/img/score_percentage.png') == False :
         df=dbtodf('team_graph_app_score_percentage')
         plt.figure(figsize=(18,5))
         category=['공격','블로킹','서브']
@@ -321,7 +321,7 @@ def scorePercentage():
         return None
 
 def roundRank18():
-    if isfile('static/img/roundRank18_22.png') == False :
+    if isfile('/static/img/roundRank18_22.png') == False :
         df=dbtodf('team_graph_app_roundrank_count_18_22')
         df=df.set_index('랭크')
         plt.subplot(1,1,1)
@@ -334,7 +334,7 @@ def roundRank18():
         return None
 
 def roundRank05():
-    if isfile('static/img/roundRank05_18.png') == False :
+    if isfile('/static/img/roundRank05_18.png') == False :
         df=dbtodf('team_graph_app_roundrank_count_05_18')
         df=df.set_index('랭크')
         plt.subplot(1,1,1)

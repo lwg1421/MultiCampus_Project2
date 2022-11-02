@@ -48,7 +48,7 @@
             <!-- OUTSIDE HITTER 부분에 DB에서 player_graph_app_player_data 테이블에서 player_position 값 가져오면 됨 -->
             <td  width="200" class="div_info_title">포지션 <br>{{context.player_position}}</td>
             <td class = "div_position" rowspan="5" colspan="2" align = "center" style="color: black;">
-            <img src="static/img/김명관_레이더.png"width="500" height="450" alt="레이터차트">
+            <img src="/static/img/{{context.player_name}}_레이더.png"width="500" height="450" alt="레이터차트">
             </td>
         </tr>
         <tr>
@@ -77,7 +77,7 @@
 
             <!-- 추세선 그래프 넣으면 됨 -->
             <td colspan = 2 class="div_info_title">
-            <img src=""width="600" height="1000" alt="추세선" /></td>
+            <img src="/static/img/{{context.player_name}}_추세선.png"width="600" height="1000" alt="추세선" /></td>
         </tr>
     </table>
 </body>

@@ -1,4 +1,4 @@
-{% load static %}
+{%load static%}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,32 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>현대 스카이워커스 TEAM</title>
-    <link rel="stylesheet" href="{% static 'css/Team.css'%}">
-    <style>
-        .multi{
-            column-count :1;
-            column-gap : 50px;
-            column-rule:1px dotted gray;
-        }
-        div {
-            border:2px solid black;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/team.css'%}">
 </head>
-
 <body>
-    <header>
+    <div>
         <a href="{% url 'home' %}">
-        <button type="button" >HOME</button> 
+        <button style="float: left;" >HOME</button> 
         </a>
         <a href="{% url 'player' %}">
-        <button type="button" class="playerButton" >PLAYER</button> 
+        <button class="playerButton"style="float: right;" >PLAYER</button> 
         </a>
-    </header>
-
+    </div>
 
 <!--팀 소개-->
-    <table border="1" style="margin-left:auto;margin-right:auto;">
+    <table border="1" style="margin-top:30px;margin-left:auto;margin-right:auto;">
         <thead>
             <tr>
                 <th><h2>앰블럼</h2></th>
@@ -40,22 +28,19 @@
                 <th><h2>우승 기록</h2></th>
             </tr>
         </thead>
-        
         <tbody>
             <tr>
                 <!--앰블럼-->
                 <td>
                     <img src="https://w.namu.la/s/6b8602aab1532270749fb4007b8aae215f236d0dde7433338db7093d0ff1621b8f777bf6446c5f0addf5ac1030724a09197be4773a1440fcf870e2bed7c5c755b76e9f173187e453631ffa2a475373ce3b45645a38b75f98a92623dc0d693de3"
-                    alt="절대 경로"style="width:350px;height:350px"title="현대 스카이워커스 로고">
+                    alt="절대 경로"style="width:350px;height:350px;margin: 0;margin-left: auto;margin-right: auto;"title="현대 스카이워커스 로고">
                 </td>
-
                 <!--간단 소개-->
                 <td>
                     <p><b>현대캐피탈 스카이워커스</b>는 천안에 연고지를 <br>둔 남자 프로 배구 팀이다.
                     <br>2005년 창단 이후 <b>4번의 우승</b>과 <b>7번의 준우승</b><br>을 거둔 전통의 강팀이며, 동시에 V-League에서<br>
                      가장 많은 팬을 보유하고 있는 <b>홈 관중</b> 동원 <br>부동의 <b>1위</b>팀이다.</p>  
                 </td>
-
                 <!--정보-->
                 <td>
                     <ul>
@@ -71,9 +56,7 @@
                             <img src="https://w.namu.la/s/a734a66418842a15120d0c93bb9527a2570810219b8c152d9457c364e5ddd0a2bff9006f8bbf84155c5d96737c261ead1d915760719768b03e7a5add16a658e6a248a12a91cee915627e9132f48184132e57fef4e0f420eff72373824ab6a9ae"
                             width="100px"height="130px">
                     </ul>
-
                 </td>
-
                 <!--우승 기록-->
                 <td>     
                      <ul>
@@ -97,39 +80,127 @@
                 </td>               
             </tr>
         </tbody>
+       <thead>
+            <tr>
+                <th colspan="2"><h2>2005-2022 정규리그 순위</h2></th>
+                <th colspan="2"><h2>상대 전적</h2></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="2">
+                    <img src="/static/img/seasonRank.png" alt="seasonRank" height="300" width="800">                   
+                </td>
+                <td>
+                    <h4> 2005-2021 정규리그</h4>
+                    <img src="/static/img/relative_record_all.png" alt="relative_record_all"height="300" width="400">
+                </td>
+                <td>
+                    <h4> 2021-2022 정규리그</h4>
+                    <img src="/static/img/relative_record_2021.png" alt="relative_record_2021"height="300" width="400">
+                </td>
+
+            </tr>
+            <tr>
+                <th colspan="2"><h2>라운드별 순위 히트맵</h2></th>
+                <th colspan="2"><h2>홈/어웨이 경기 전적</h2></th>
+            </tr>
+            <tr>
+                <td>
+                    <h4> 2005-2018 정규리그</h4>
+                    <img src="/static/img/roundRank05_18.png" alt="roundRank05_18"height="300" width="400">
+                </td>
+                <td>
+                    <h4> 2018-2022 정규리그</h4>
+                    <img src="/static/img/roundRank18_22.png" alt="roundRank18_22"height="300" width="400">
+                </td>
+                <td>
+                    <h4> 2005-2021 정규리그</h4>
+                    <img src="/static/img/home_away_all.png" alt="home_away_all"height="300" width="400">
+                </td>
+                <td>
+                    <h4> 2021-2022 정규리그</h4>
+                    <img src="/static/img/home_away_2021.png" alt="home_away_2021"height="300" width="400">
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2"><h2>공격 유형별 득점 비율</h2></th>
+                <th colspan="2"><h2>역전패/완패 전적 비율</h2></th>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <img src="/static/img/score_percentage.png" alt="scorePercentage"height="300" width="800">
+                </td>
+                <td>
+                    <h4> 3-2 스코어 경기 전적</h4>
+                    <img src="/static/img/clean_sheet.png" alt="clean_sheet"height="300" width="400">
+                </td>
+                <td>
+                    <h4> 3-0 스코어 경기 전적</h4>
+                    <img src="/static/img/upset.png" alt="upset"height="300" width="400">
+                </td>
+                
+            </tr>
+            <tr>
+                <th colspan="4"><h2>ace-scatter</h2></th> 
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <img src="/static/img/ace_scatter.png" alt="ace_scatter"height="300" width="1200">    
+                </td>
+                <td colspan="1">
+                    <ul>
+                        <h3><b>**현대: 검정색</b></h3>
+                        <li><b>공격 효율: 공격 시도 1회당 기대 득점값</b></li> 
+                            <ul>
+                                <li>1위 선수:39.6%</li>
+                                <li>10위 선수:27.1%</li>
+                            </ul>
+                        <li><b>서브 성공률: 서브가 득점으로 연결된 경우</b></li> 
+                            <ul>
+                                <li>1위 선수:20.5%</li>
+                                <li>10위 선수:12.27%</li>                         
+                            </ul>
+                        <li><b>세트 성공률: 세트(토스)한 볼을 공격수가 공격해서 득점으로 연결한 경우</b></li>
+                            <ul>
+                                <li>1위 선수:55.7%</li>
+                                <li>10위 선수:47.5%</li>                         
+                            </ul>
+                        <li><b>블로킹 성공률: 상대 팀 공이 네트를 건너오는 순간 막아내는 경우</b></li> 
+                            <ul>
+                                <li>1위 선수:20.5%</li>
+                                <li>10위 선수:12.3%</li>                         
+                            </ul>
+                        <li><b>리시브 효율: 1회 리시브 당 기대 득점값</b></li>  
+                            <ul>
+                                <li>1위 선수:0.52</li>
+                                <li>10위 선수:0.38</li>
+                            </ul>
+                        <li><b>디그 성공률: 상대의 스파이크를 받아내 동료에게 연결된 경우</b></li>
+                            <ul>
+                                <li>1위 선수:78.5%</li>
+                                <li>10위 선수:63.1%</li>                         
+                            </ul>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2"><h2>팀 에이스 지표 </h2></th>
+                <th colspan="2"><h2>팀별 톱랭킹 분포 </h2></th>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <img src="/static/img/ace_comparison.png" alt="ace_comparison">    
+                </td>
+                <td colspan="2">
+                    <img src="/static/img/hist_comparison.png" alt="hist_comparison"height="700" width="800">
+                    <ul>
+                        <li><b>톱랭킹</b>은 한국배구연맹에서 제공하는 공격, 서브, 블로킹, 세트, 리시브, 디그 등 지표들을 활용하여,<br> 선수의 활약을 하나의 수치로 점수화한 지표.</li>
+                        <li>2021-2022시즌 현대캐피탈은 외국인 선수 부재로 3000~4000에 해당하는 고득점 톱랭킹 선수가 없음. </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>    
     </table>
-
-
-    <span>
-        <h2>2005~2022 정규리그 순위 변동</h2>
-        <img src="static/img/score_percentage.png" alt="scorePercentage">
-    </span>
-    <span>
-        <h2>라운드별 순위 빈도 히트맵</h2>
-        <img src="static/img/roundRank05_18.png" alt="roundRank05_18">
-        <img src="static/img/roundRank18_22.png" alt="roundRank18_22">
-    </span>
-    <span>
-        <h2>시즌별 득점 비율</h2>
-        <img src="static/img/score_percentage.png" alt="scorePercentage">
-    </span>
-    <span>
-        <h2>톱랭킹포인트 지표를 통한 각 팀 에이스 비교</h2>
-        <img src="static/img/ace_comparison.png" alt="ace_comparison">
-        <img src="static/img/ace_scatter.png" alt="ace_scatter">
-        <h2>각 팀 선수들의 톱랭킹포인트 도수분포표</h2>
-        <img src="static/img/hist_comparison.png" alt="hist_comparison">
-    </span>
-    <span>
-        <h2>홈과 어웨이에서의 승률 비교</h2>
-        <img src="static/img/home_away_all.png" alt="home_away_all">
-        <img src="static/img/home_away_2021.png" alt="home_away_2021">
-        <h2>스카이워커스와 각 팀간의 상대 전적</h2>
-        <img src="static/img/relative_record_all.png" alt="relative_record_all">
-        <img src="static/img/relative_record_2021.png" alt="relative_record_2021">
-        <h2>3-2와 3-0전적 통계</h2>
-        <img src="static/img/clean_sheet.png" alt="clean_sheet">
-        <img src="static/img/upset.png" alt="upset">
-    </span>
 </body>
 </html>
