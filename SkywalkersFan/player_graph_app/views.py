@@ -41,8 +41,17 @@ def player(request) :
 
 # 선수 이름을 주고받고 싶음
 def get_player(request, word) :
-    message="넘어온 문자는 "+word+"입니다"
-    return HttpResponse(message)
+    context=make_context(word)
+    return render(request,'player_graph_app/Player_info_test.html', {'context':context})
+
+def make_context(word) :
+    df=dbtodf('player_graph_app_player_data')
+    temp=df.T.to_dict()
+    for i in range(0,22):
+        if temp[i]['player_name']==word:
+            context=temp[i]
+            break
+    return context
 
 def dbtodf(table_name):
     temp='select * from '+str(table_name)
@@ -224,8 +233,8 @@ def libero():
     set_suc = top_libero_dig["세트 성공률"].tolist()
 
     # 한글 폰트 깨짐 방지 
-    rc('font', family='AppleGothic') 
-    plt.rcParams['axes.unicode_minus'] = False
+    # rc('font', family='AppleGothic') 
+    # plt.rcParams['axes.unicode_minus'] = False
 
     libero.set_index('Rank', inplace=True)
     libero_lst = libero['선수명'].tolist()     # 반복문 리스트 내 데이터 비교를 위한 리스트화 작업. 
@@ -342,8 +351,8 @@ def setter():
     serve_suc = top_setter_serve['서브 성공률'].tolist()
 
     # 한글 폰트 깨짐 방지 
-    rc('font', family='AppleGothic') 
-    plt.rcParams['axes.unicode_minus'] = False
+    # rc('font', family='AppleGothic') 
+    # plt.rcParams['axes.unicode_minus'] = False
 
     setter.set_index('Rank', inplace=True)
     setter_lst = setter['선수명'].tolist()     # 반복문 리스트 내 데이터 비교를 위한 리스트화 작업. 
@@ -566,8 +575,8 @@ def center():
     receive_e = top_center_receive_e['리시브 효율'].tolist()
 
     # 한글 폰트 깨짐 방지 
-    rc('font', family='AppleGothic') 
-    plt.rcParams['axes.unicode_minus'] = False
+    # rc('font', family='AppleGothic') 
+    # plt.rcParams['axes.unicode_minus'] = False
 
     center.set_index('Rank', inplace=True)
     center_lst = center['선수명'].tolist()     # 반복문 리스트 내 데이터 비교를 위한 리스트화 작업. 
@@ -814,8 +823,8 @@ def left():
     receive_e = top_left_receive_e['리시브 효율'].tolist()
 
     # 한글 폰트 깨짐 방지 
-    rc('font', family='AppleGothic') 
-    plt.rcParams['axes.unicode_minus'] = False
+    # rc('font', family='AppleGothic') 
+    # plt.rcParams['axes.unicode_minus'] = False
 
     left.set_index('Rank', inplace=True)
     left_lst = left['선수명'].tolist()     # 반복문 리스트 내 데이터 비교를 위한 리스트화 작업. 
@@ -1062,8 +1071,8 @@ def right():
     receive_e = top_right_receive_e['리시브 효율'].tolist()
 
     # 한글 폰트 깨짐 방지 
-    rc('font', family='AppleGothic') 
-    plt.rcParams['axes.unicode_minus'] = False
+    # rc('font', family='AppleGothic') 
+    # plt.rcParams['axes.unicode_minus'] = False
 
     right.set_index('Rank', inplace=True)
     right_lst = right['선수명'].tolist()     # 반복문 리스트 내 데이터 비교를 위한 리스트화 작업. 
