@@ -1,4 +1,4 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -17,51 +17,120 @@
             border:2px solid black;
         }
     </style>
-
-
 </head>
 
 <body>
     <header>
         <a href="{% url 'home' %}">
-        <button type="button" >HOME</button>
+        <button type="button" >HOME</button> 
         </a>
         <a href="{% url 'player' %}">
-        <button type="button" class="playerButton" >PLAYER</button>
+        <button type="button" class="playerButton" >PLAYER</button> 
         </a>
     </header>
 
-    <img src="https://w.namu.la/s/6b8602aab1532270749fb4007b8aae215f236d0dde7433338db7093d0ff1621b8f777bf6446c5f0addf5ac1030724a09197be4773a1440fcf870e2bed7c5c755b76e9f173187e453631ffa2a475373ce3b45645a38b75f98a92623dc0d693de3"
-    alt="절대 경로"style="float:left;width:300px;height:300px"title="현대 스카이워커스 로고">
-    
 
-    
-    <div class="multi">
-    <p><b>현대캐피탈 스카이워커스</b>는 천안에 연고지를 둔 남자 프로 배구 팀이다.
-        <br>2005년 창단 이후 <b>4번의 우승</b>과 <b>7번의 준우승</b>을 거둔 전통의 강팀이며, 동시에 V-League에서 가장 많은 팬을 보유하고 있는 <b>홈 관중</b> 동원 부동의 <b>1위</b>
-        팀이다.</p>  
+<!--팀 소개-->
+    <table border="1" style="margin-left:auto;margin-right:auto;">
+        <thead>
+            <tr>
+                <th><h2>앰블럼</h2></th>
+                <th><h2>소개</h2></th>
+                <th><h2>정보</h2></th>
+                <th><h2>우승 기록</h2></th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <!--앰블럼-->
+                <td>
+                    <img src="https://w.namu.la/s/6b8602aab1532270749fb4007b8aae215f236d0dde7433338db7093d0ff1621b8f777bf6446c5f0addf5ac1030724a09197be4773a1440fcf870e2bed7c5c755b76e9f173187e453631ffa2a475373ce3b45645a38b75f98a92623dc0d693de3"
+                    alt="절대 경로"style="width:350px;height:350px"title="현대 스카이워커스 로고">
+                </td>
 
-    </div>
-    <div class="ryu">
-        <h2>각 팀 에이스 지표 비교</h2>
+                <!--간단 소개-->
+                <td>
+                    <p><b>현대캐피탈 스카이워커스</b>는 천안에 연고지를 <br>둔 남자 프로 배구 팀이다.
+                    <br>2005년 창단 이후 <b>4번의 우승</b>과 <b>7번의 준우승</b><br>을 거둔 전통의 강팀이며, 동시에 V-League에서<br>
+                     가장 많은 팬을 보유하고 있는 <b>홈 관중</b> 동원 <br>부동의 <b>1위</b>팀이다.</p>  
+                </td>
+
+                <!--정보-->
+                <td>
+                    <ul>
+                        <li><b>창단:</b>1983년(39주년)</li>
+                        <li><b>프로 출범:</b>2005년 2월 15일(17주년)</li>
+                        <li><b>연고지:</b>충청남도 천안</li>
+                        <li><b>홈구장:</b>유관순체육관</li>
+                        <li><b>모기업:</b>현대캐피탈</li>
+                        <li><b>구단주:</b>목진원</li>
+                        <li><b>감독:</b>최태웅</li>
+                        <li><b>주장:</b>전광인</li>
+                        <li><b>마스코트:</b>몰리</li>
+                            <img src="https://w.namu.la/s/a734a66418842a15120d0c93bb9527a2570810219b8c152d9457c364e5ddd0a2bff9006f8bbf84155c5d96737c261ead1d915760719768b03e7a5add16a658e6a248a12a91cee915627e9132f48184132e57fef4e0f420eff72373824ab6a9ae"
+                            width="100px"height="130px">
+                    </ul>
+
+                </td>
+
+                <!--우승 기록-->
+                <td>     
+                     <ul>
+                        <li>
+                            <h4><b>챔피언 결정전 우승</b>(4회)</h4>
+                             2005-06, 2006-07, 2016-17, 2018-19
+                        </li>
+                        <li>
+                            <h4><b>정규시즌 우승</b>(5회)</h4>
+                             2005, 2005-06, 2008-09, 2015-16, 2017-18
+                        </li>
+                        <li>
+                            <h4><b>KOVO컵 우승</b>(4회)</h4>
+                            2006, 2008, 2010, 2013
+                        </li>
+                        <li>
+                            <h4><b>대통령배-슈퍼리그 우승</b>(5회)</h4>
+                            1986, 1987, 1987, 1994, 1995
+                        </li>
+                     </ul>
+                </td>               
+            </tr>
+        </tbody>
+    </table>
+
+
+    <span>
+        <h2>2005~2022 정규리그 순위 변동</h2>
+        <img src="static/img/score_percentage.png" alt="scorePercentage">
+    </span>
+    <span>
+        <h2>라운드별 순위 빈도 히트맵</h2>
+        <img src="static/img/roundRank05_18.png" alt="roundRank05_18">
+        <img src="static/img/roundRank18_22.png" alt="roundRank18_22">
+    </span>
+    <span>
+        <h2>시즌별 득점 비율</h2>
+        <img src="static/img/score_percentage.png" alt="scorePercentage">
+    </span>
+    <span>
+        <h2>톱랭킹포인트 지표를 통한 각 팀 에이스 비교</h2>
         <img src="static/img/ace_comparison.png" alt="ace_comparison">
         <img src="static/img/ace_scatter.png" alt="ace_scatter">
-    </div>
-    <div class="cha">
-        <img src="static/img/relative_record_all.png" alt="relative_record_all">
-        <img src="static/img/relative_record_2021.png" alt="relative_record_2021">
-        <img src="static/img/clean_sheet.png" alt="clean_sheet">
-        <img src="static/img/upset.png" alt="upset">
+        <h2>각 팀 선수들의 톱랭킹포인트 도수분포표</h2>
+        <img src="static/img/hist_comparison.png" alt="hist_comparison">
+    </span>
+    <span>
+        <h2>홈과 어웨이에서의 승률 비교</h2>
         <img src="static/img/home_away_all.png" alt="home_away_all">
         <img src="static/img/home_away_2021.png" alt="home_away_2021">
-    </div>
-    <div class="seong">
-        <img src="static/img/seasonRank.png" alt="seasonRank">
-        <img src="static/img/score_percentage.png" alt="scorePercentage">
-        <img src="static/img/roundRank18_22.png" alt="roundRank18_22">
-        <img src="static/img/roundRank05_18.png" alt="roundRank05_18">
-    </div>
-
+        <h2>스카이워커스와 각 팀간의 상대 전적</h2>
+        <img src="static/img/relative_record_all.png" alt="relative_record_all">
+        <img src="static/img/relative_record_2021.png" alt="relative_record_2021">
+        <h2>3-2와 3-0전적 통계</h2>
+        <img src="static/img/clean_sheet.png" alt="clean_sheet">
+        <img src="static/img/upset.png" alt="upset">
+    </span>
 </body>
 </html>
 
