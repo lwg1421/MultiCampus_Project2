@@ -261,7 +261,7 @@ def seasonRank():
     plt.gca().invert_yaxis()   #y축 반대로
     plt.xlabel('Season League')         
     plt.ylabel('Rank')
-    plt.title('시즌 순위',fontsize=25)
+    # plt.title('시즌 순위',fontsize=25)
     plt.legend()
     return plt.savefig('static/img/seasonRank.png')  
 
@@ -293,7 +293,7 @@ def roundRank18():
     df=df.set_index('랭크')
     plt.subplot(1,1,1)
     sns.heatmap(df,annot=True,fmt='d',cmap='Reds')
-    plt.title('라운드 별 순위 빈도(2018~2022)', fontsize=20)
+    # plt.title('라운드 별 순위 빈도(2018~2022)', fontsize=20)
     plt.xlabel('Round', fontsize=14)
     plt.ylabel('Rank', fontsize=14)
 
@@ -304,7 +304,7 @@ def roundRank05():
     df=df.set_index('랭크')
     plt.subplot(1,1,1)
     sns.heatmap(df,annot=True,fmt='d',cmap='Reds')
-    plt.title('라운드 별 순위 빈도(2005~2018)', fontsize=20)
+    # plt.title('라운드 별 순위 빈도(2005~2018)', fontsize=20)
     plt.xlabel('Round', fontsize=14)
     plt.ylabel('Rank', fontsize=14)
 
