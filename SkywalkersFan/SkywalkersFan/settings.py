@@ -126,6 +126,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,'player_graph_app','static'),
     os.path.join(BASE_DIR,'team_graph_app','static'),
     os.path.join(BASE_DIR,'main_app','static'),
 ]
