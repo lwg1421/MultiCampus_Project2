@@ -282,10 +282,8 @@ def home_away_2021():
 def seasonRank():
     if 'static/img/seasonRank.png' == False :
         df=dbtodf('team_graph_app_seasonrank')
-
         plt.figure(figsize=(20,5))
         plt.plot(df['시즌'], df['순위'],label='HYUNDAI',marker='o')
-
         plt.gca().invert_yaxis()   #y축 반대로
         plt.xlabel('Season League')         
         plt.ylabel('Rank')
