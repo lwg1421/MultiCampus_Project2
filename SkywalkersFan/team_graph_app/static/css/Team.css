@@ -2,7 +2,7 @@
 
 
 button {
-        margin:15px auto 30px 30px;
+        margin:15px auto 30px auto;
         background-color:black;
         display:inlibe-block;
         cursor:pointer;
@@ -10,7 +10,11 @@ button {
         font-family:Arial;
         font-size:17px;
         font-weight:bold;
-        padding:9px 23px;     
+        padding:9px 23px; 
+         
+        
+        
+    
 }
 button:hover {
 	background:linear-gradient(to bottom, #4b5055 5%, #2d2f31 100%);
@@ -24,7 +28,9 @@ button:active {
 
 .playerButton{  
 
-    margin:15px 30px auto 1200px;
-    position:absolute;
+    margin:15px auto 30px auto; 
+    /* position:absolute;  */
+
+    
      
 }

@@ -40,6 +40,8 @@ def player(request) :
     return render(request, 'player_graph_app/Player_list_test.html')
 
 # 선수 이름을 주고받고 싶음
+# 선수 클릭할 때 파일 있는지 확인해서 함수 실행되도록
+# 선수 클릭할 때 매개변수로 이름을 받아서 그래프를 그리기
 def get_player(request, word) :
     context=make_context(word)
     return render(request,'player_graph_app/Player_info_test.html', {'context':context})
