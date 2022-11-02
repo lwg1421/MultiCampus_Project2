@@ -1,4 +1,3 @@
-from http.client import HTTPResponse
 import sqlite3 as sql
 import pandas as pd
 import numpy as np
@@ -6,6 +5,7 @@ import matplotlib.pyplot as plt
 import plotly.express as px 
 import platform
 from django.shortcuts import render
+from django.http import HttpResponse
 from math import pi
 from matplotlib.path import Path
 from matplotlib.spines import Spine
@@ -41,7 +41,8 @@ def player(request) :
 
 # 선수 이름을 주고받고 싶음
 def get_player(request, word) :
-    return HTTPResponse("넘어온 데이터 : " + word)
+    message="넘어온 문자는 "+word+"입니다"
+    return HttpResponse(message)
 
 def dbtodf(table_name):
     temp='select * from '+str(table_name)
