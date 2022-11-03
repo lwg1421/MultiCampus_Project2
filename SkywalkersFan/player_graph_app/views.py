@@ -155,6 +155,7 @@ def Player_RecordChart_One(name):
         dt = df.loc[(df["player_name"]==name)]
 
         plt.figure(figsize=(9,14),facecolor = "white")
+        
         plt.subplot(4,2,1)
         plt.plot(dt.loc[:,"season"],dt.loc[:,"score"],"--or")
         plt.title("득점", fontsize=15)
@@ -239,23 +240,34 @@ def libero(player):
         libero.set_index('Rank', inplace=True)
         libero_lst = libero['선수명'].tolist()     # 반복문 리스트 내 데이터 비교를 위한 리스트화 작업. 
 
-        plt.figure(figsize=(9,7),facecolor='white')
-        plt.subplot(2,1,1)
+        plt.figure(figsize=(9,14),facecolor='white')
 
+        plt.subplot(2,1,1)
         y_dig=np.zeros(len(dig_suc))+1.3
         ax=plt.gca()
-
         plt.scatter(dig_suc,y_dig,c='black')
         plt.scatter(top_libero_dig.loc[top_libero_dig["선수명"]==player,"디그 성공률"],1.3,s=150,c='r')
         plt.ylim(0.1,-0.1)
         plt.title('디그 성공률',fontsize=15)
         plt.ylabel('Y-Axis')
         plt.axis('scaled')
-
         # x축 y축 제거
         ax.axes.yaxis.set_visible(False)
         plt.gca().axes.xaxis.set_visible(False)
-        return plt.savefig('static/img/'+str(player)+'_순위.png',bbox_inches='tight')
+
+        plt.subplot(2,1,2)
+        y_set = np.zeros(len(set_suc))+0
+        ax = plt.gca()
+        plt.scatter(set_suc,y_set,c = "black")
+        plt.scatter(top_libero_set.loc[top_libero_set["선수명"]==player,"세트 성공률"],0,s=150,c ="r")
+        plt.ylim(0.1,-0.1)
+        plt.title('세트 성공률' , fontsize = 15)
+        plt.ylabel('Y-Axis')
+        plt.axis('scaled')
+        # x축 y축 삭제
+        ax.axes.yaxis.set_visible(False)
+        plt.gca().axes.xaxis.set_visible(False)
+        return plt.savefig('static/img/'+str(player)+'_순위.png')
     else:
         return None
     
