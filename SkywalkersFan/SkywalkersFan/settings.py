@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'player_graph_app',
+    'team_graph_app',
+    'main_app',
+
 ]
 
 MIDDLEWARE = [
@@ -103,9 +107,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
@@ -121,3 +125,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATICFILES_DIRS=[
+    os.path.join('static/'),
+    os.path.join(BASE_DIR,'player_graph_app','static'),
+    os.path.join(BASE_DIR,'team_graph_app','static'),
+    os.path.join(BASE_DIR,'main_app','static'),
+]
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_URL='/media/'
