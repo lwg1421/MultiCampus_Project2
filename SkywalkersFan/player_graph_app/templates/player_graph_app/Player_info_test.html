@@ -86,11 +86,16 @@
             </tr>
             <tr>
                 <!-- 선수 순위 그래프 넣으면 됨 -->
-                <td colspan = 2 class="div_info_title"></td>
+                <td colspan = 2 class="div_info_title">
+                    <div style="text-align:center">
+                        <img src="/static/img/{{context.player_name}}_순위.png" width="600" height="1000" alt="{{context.player_name}}_순위">
+                    </div>
+                </td>
 
                 <!-- 추세선 그래프 넣으면 됨 -->
                 <td colspan = 2 class="div_info_title">
-                <img src="/static/img/{{context.player_name}}_추세선.png"width="600" height="1000" alt="추세선" /></td>
+                    <img src="/static/img/{{context.player_name}}_추세선.png"width="650" height="1000" alt="추세선"/>
+                </td>
             </tr>
         </table>
     </div>
