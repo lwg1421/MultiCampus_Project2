@@ -197,7 +197,7 @@ def Player_RecordChart_One(name):
         plt.xlabel("시즌")
 
         plt.subplots_adjust(hspace=0.7,wspace=0.3)
-        return plt.savefig('static/img/'+name+'_추세선.png')
+        return plt.savefig('static/img/'+name+'_추세선.png',bbox_inches='tight')
     else:
         return None  
 
