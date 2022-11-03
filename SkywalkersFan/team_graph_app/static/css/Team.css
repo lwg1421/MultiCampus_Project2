@@ -1,6 +1,5 @@
 @charset "utf-8";
 
-
 button {
         margin:15px auto 30px auto;
         background-color:black;
@@ -10,27 +9,20 @@ button {
         font-family:Arial;
         font-size:17px;
         font-weight:bold;
-        padding:9px 23px; 
-         
-        
-        
-    
+        padding:9px 23px;     
 }
+
 button:hover {
 	background:linear-gradient(to bottom, #4b5055 5%, #2d2f31 100%);
 	background-color:#4b5055;
 }
+
 button:active {
 	position:relative;
 	top:1px;
 }
 
-
-.playerButton{  
-
+.playerButton{
     margin:15px auto 30px auto; 
-    /* position:absolute;  */
-
-    
-     
+    position:absolute;    
 }
