@@ -1,6 +1,8 @@
 import sqlite3 as sql
 import pandas as pd
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import plotly.express as px 
 import platform
@@ -37,14 +39,14 @@ def player(request) :
     for name in h_cap_lst:
         Player_RaderChart_One(name)
         Player_RecordChart_One(name)    
-    return render(request, 'player_graph_app/Player_list_test.html')
+    return render(request, 'player_graph_app/player_list_test.html')
 
 # 선수 이름을 주고받고 싶음
 # 선수 클릭할 때 파일 있는지 확인해서 함수 실행되도록
 # 선수 클릭할 때 매개변수로 이름을 받아서 그래프를 그리기
 def get_player(request, word) :
     context=make_context(word)
-    return render(request,'player_graph_app/Player_info_test.html', {'context':context})
+    return render(request,'player_graph_app/player_info_test.html', {'context':context})
 
 def make_context(word) :
     df=dbtodf('player_graph_app_player_data')

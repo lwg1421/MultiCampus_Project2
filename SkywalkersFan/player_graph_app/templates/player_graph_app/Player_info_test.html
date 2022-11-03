@@ -25,60 +25,74 @@
         }
 
     </style>
+    <link rel="stylesheet" href="{% static 'css/team.css' %}">
     <title>선수정보</title>
 
 </head>
 <body>
-    <hr align="center" style="border: solid 10px black; width: 80%;">
-	<p class = div_title size = 200 style="text-align:center;">선수 정보</p>
-    <hr align="center" style="border: solid 10px black; width: 80%;">
+    <div id="nav" style="height:80px">
+        <a href="{% url 'team' %}">
+        <button style="float: left">TEAM</button> 
+        </a>
+        <a href="{% url 'player' %}">
+        <button style="float: right">PLAYER</button> 
+        </a>
+    </div>
 
-    <table border="1" >
-        <tr>
-            <!-- 전광인 부분에 DB에서 player_graph_app_player_data 테이블에서 player_name 값 가져오면 됨 -->
-            <!-- [레 이 더 차 트 넣 는 자 리 ] 에 레이더차트 넣으면 됨 -->
-            <td height = 100 class = "div_position" colspan="2" align = "center" style="color: black;">{{context.player_name}}</td>
-            <td class = "div_position" colspan="2" align = "center" style="color: black;">21-22시즌 기록</td>
-        </tr>
-        <tr>
-            <!-- OUTSIDE HITTER 부분에 DB에서 player_graph_app_player_data 테이블에서 player_img 값 가져오면 됨 -->
-            <td rowspan="6"><img src={{context.player_img}} width="463" height="432" alt="" /></a></td>
-        </tr>
-        <tr>
-            <!-- OUTSIDE HITTER 부분에 DB에서 player_graph_app_player_data 테이블에서 player_position 값 가져오면 됨 -->
-            <td  width="200" class="div_info_title">포지션 <br>{{context.player_position}}</td>
-            <td class = "div_position" rowspan="5" colspan="2" align = "center" style="color: black;">
-            <img src="/static/img/{{context.player_name}}_레이더.png"width="500" height="450" alt="레이터차트">
-            </td>
-        </tr>
-        <tr>
-            <!-- NO.12 부분에 DB에서 player_graph_app_player_data 테이블에서 player_number 값 가져오면 됨 -->
-            <td class="div_info_title">선수번호 <br>{{context.player_number}}</td>
-        </tr>
-        <tr>
-            <!-- 1991년 09월 18일 부분에 DB에서 player_graph_app_player_data 테이블에서 player_birth 값 가져오면 됨 -->
-            <td class="div_info_title">생년월일 <br>{{context.player_birth}}</td>
-        </tr>
-        <tr>
-            <!-- 194cm 부분에 DB에서 player_graph_app_player_data 테이블에서 player_height 값 가져오면 됨 -->
-            <td class="div_info_title">신장 <br>{{context.player_height}}</td>
-        </tr>
-        <tr>
-            <!-- 88kg 부분에 DB에서 player_graph_app_player_data 테이블에서 player_weight 값 가져오면 됨 -->
-            <td class="div_info_title">체중 <br>{{context.player_weight}}</td>
-        </tr>
-        <tr>
-            <td height = 100 class = "div_position" colspan="2" align = "center" style="color: black;">분야별 순위 [포지션]</td>
-            <td height = 100 class = "div_position" colspan="2" align = "center" style="color: black;">시즌별 기록</td>
-        </tr>
-        <tr>
-            <!-- 선수 순위 그래프 넣으면 됨 -->
-            <td colspan = 2 class="div_info_title"></td>
+    <div id="header">
+        <hr align="center" style="border: solid 10px black; width: 80%;">
+        <p class = div_title size = 200 style="text-align:center;">선수 정보</p>
+        <hr align="center" style="border: solid 10px black; width: 80%;">
+    </div>
 
-            <!-- 추세선 그래프 넣으면 됨 -->
-            <td colspan = 2 class="div_info_title">
-            <img src="/static/img/{{context.player_name}}_추세선.png"width="600" height="1000" alt="추세선" /></td>
-        </tr>
-    </table>
+    <div id="section">
+        <table border="1" >
+            <tr>
+                <!-- 전광인 부분에 DB에서 player_graph_app_player_data 테이블에서 player_name 값 가져오면 됨 -->
+                <!-- [레 이 더 차 트 넣 는 자 리 ] 에 레이더차트 넣으면 됨 -->
+                <td height = 100 class = "div_position" colspan="2" align = "center" style="color: black;">{{context.player_name}}</td>
+                <td class = "div_position" colspan="2" align = "center" style="color: black;">21-22시즌 기록</td>
+            </tr>
+            <tr>
+                <!-- OUTSIDE HITTER 부분에 DB에서 player_graph_app_player_data 테이블에서 player_img 값 가져오면 됨 -->
+                <td rowspan="6"><img src={{context.player_img}} width="463" height="432" alt="" /></a></td>
+            </tr>
+            <tr>
+                <!-- OUTSIDE HITTER 부분에 DB에서 player_graph_app_player_data 테이블에서 player_position 값 가져오면 됨 -->
+                <td  width="200" class="div_info_title">포지션 <br>{{context.player_position}}</td>
+                <td class = "div_position" rowspan="5" colspan="2" align = "center" style="color: black;">
+                <img src="/static/img/{{context.player_name}}_레이더.png"width="500" height="450" alt="레이터차트">
+                </td>
+            </tr>
+            <tr>
+                <!-- NO.12 부분에 DB에서 player_graph_app_player_data 테이블에서 player_number 값 가져오면 됨 -->
+                <td class="div_info_title">선수번호 <br>{{context.player_number}}</td>
+            </tr>
+            <tr>
+                <!-- 1991년 09월 18일 부분에 DB에서 player_graph_app_player_data 테이블에서 player_birth 값 가져오면 됨 -->
+                <td class="div_info_title">생년월일 <br>{{context.player_birth}}</td>
+            </tr>
+            <tr>
+                <!-- 194cm 부분에 DB에서 player_graph_app_player_data 테이블에서 player_height 값 가져오면 됨 -->
+                <td class="div_info_title">신장 <br>{{context.player_height}}</td>
+            </tr>
+            <tr>
+                <!-- 88kg 부분에 DB에서 player_graph_app_player_data 테이블에서 player_weight 값 가져오면 됨 -->
+                <td class="div_info_title">체중 <br>{{context.player_weight}}</td>
+            </tr>
+            <tr>
+                <td height = 100 class = "div_position" colspan="2" align = "center" style="color: black;">분야별 순위 [포지션]</td>
+                <td height = 100 class = "div_position" colspan="2" align = "center" style="color: black;">시즌별 기록</td>
+            </tr>
+            <tr>
+                <!-- 선수 순위 그래프 넣으면 됨 -->
+                <td colspan = 2 class="div_info_title"></td>
+
+                <!-- 추세선 그래프 넣으면 됨 -->
+                <td colspan = 2 class="div_info_title">
+                <img src="/static/img/{{context.player_name}}_추세선.png"width="600" height="1000" alt="추세선" /></td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
